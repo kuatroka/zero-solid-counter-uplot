@@ -4,6 +4,9 @@ import { getRequestListener } from "@hono/node-server";
 import { app } from "./server/index.js";
 
 export default defineConfig({
+  server: {
+    port: 5174,
+  },
   optimizeDeps: {
     esbuildOptions: {
       supported: {

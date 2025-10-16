@@ -1,4 +1,5 @@
 import { useQuery, useZero } from "@rocicorp/zero/solid";
+import { A } from "@solidjs/router";
 import Cookies from "js-cookie";
 import { createEffect, createSignal, For, Show } from "solid-js";
 import { Mutators } from "../shared/mutators";
@@ -114,7 +115,14 @@ function App() {
     users().find((user) => user.id === z.userID)?.name ?? "anon";
 
   return (
-    <Show when={initialSyncComplete()}>
+    <>
+      <div
+        class="top-nav"
+        style={{ display: "flex", "justify-content": "flex-end", gap: "12px", padding: "8px 12px" }}
+      >
+        <A href="/counter">Counter</A>
+      </div>
+      <Show when={initialSyncComplete()}>
       <div class="controls">
         <div>
           <button onMouseDown={addMessages} onMouseUp={stopAction}>
@@ -232,7 +240,8 @@ function App() {
           </tbody>
         </table>
       )}
-    </Show>
+      </Show>
+    </>
   );
 }
 

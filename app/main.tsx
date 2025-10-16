@@ -1,6 +1,8 @@
 /* @refresh reload */
 import { render } from "solid-js/web";
 import App from "./App.tsx";
+import CounterPage from "./CounterPage.tsx";
+import { Router, Route } from "@solidjs/router";
 import "./index.css";
 import { schema } from "../shared/schema.ts";
 import Cookies from "js-cookie";
@@ -24,7 +26,11 @@ const root = document.getElementById("root");
 render(
   () => (
     <ZeroProvider {...zeroOptions}>
-      <App />
+      <Router>
+        <Route path="/" component={App} />
+        <Route path="/counter" component={CounterPage} />
+        <Route path="*" component={App} />
+      </Router>
     </ZeroProvider>
   ),
   root!
