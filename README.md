@@ -1,14 +1,30 @@
-# Zero + Solid + TypeScript + Vite
+# Zero + Hono +Solid + TypeScript + Vite
 
-```bash
+## This example app is extended by adding a counter component and 10 charts using the uPlot library. 
+
+```zsh
 git clone https://github.com/rocicorp/hello-zero-solid.git
+```
+
+
+```zsh
 cd hello-zero-solid
-npm install
-npm run dev:db-up
+bun install
+bun run dev:db-up
+```
 
+```zsh
 # in a second terminal
-npm run dev:zero-cache
+bun run dev:zero-cache
+```
 
+```zsh
 # in yet another terminal
-npm run dev:ui
+bun run dev:ui
+```
+
+## Troubleshooting 
+When getting error messages about zero-dash SQLite, rerun the rebuild command. It's important to run it with **npm** and not and not **bun**, as **bun** seems to break things for this specific library. 
+```zsh
+npm rebuild @rocicorp/zero-sqlite3
 ```
